@@ -1,10 +1,23 @@
 import React from "react";
+import Home from "./Components/Home/Home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NOMatch from "./Components/NOMatch/NOMatch";
 
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="*">
+          <NOMatch />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
